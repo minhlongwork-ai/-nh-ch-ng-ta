@@ -45,6 +45,24 @@
   </style>
 </head>
 
+<script>
+  const video = document.querySelector('#video');
+  const soundBtn = document.querySelector('#sound-btn');
+
+  // Khi user chạm màn hình lần đầu
+  document.body.addEventListener('click', () => {
+    if (video.paused) {
+      video.play();
+    }
+  });
+
+  // Bật âm thanh
+  soundBtn.addEventListener('click', () => {
+    video.muted = false;
+    video.play();
+  });
+</script>
+
 <body>
 
   <!-- Gợi ý cho user -->
@@ -70,7 +88,6 @@
         height="0.56"
         position="0 0 0"
         rotation="-90 0 0"
-        autoplay
         loop>
       </a-video>
 
@@ -82,14 +99,16 @@
 
   <!-- VIDEO ASSET -->
   <video
-    id="video"
-    src="assets/video.mp4"
-    preload="auto"
-    loop
-    playsinline
-    webkit-playsinline
-    crossorigin="anonymous">
+  id="video"
+  src="assets/video.mp4"
+  preload="auto"
+  loop
+  muted
+  playsinline
+  webkit-playsinline
+  crossorigin="anonymous">
   </video>
+
 
   <button id="sound-btn">
     🔊 Bật âm thanh
